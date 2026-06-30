@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CineVerse Reviews</title>
+
+  <link rel="stylesheet" href="{{url_for('static',filename='reviews.css')}}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      CineVerse
+    </div>
+
+    <ul>
+
+      <li><a href="/home">Home</a></li>
+
+      <li><a href="/movies">Movies</a></li>
+
+      <li><a href="/reviews" class="active">Reviews</a></li>
+
+      <li><a href="#">Wishlist</a></li>
+
+      <li><a href="#">Profile</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h1>
+      Movie Reviews ⭐
+    </h1>
+
+    <p>
+      Explore what movie lovers are saying about trending films.
+    </p>
+
+  </section>
+
+  <!-- REVIEWS -->
+
+  <section class="reviews-container">
+    
+
+  {% for review in reviews %}
+
+<div class="review-card">
+
+    <h2>{{ review[1] }}</h2>
+
+    <h3>{{ review[2] }}</h3>
+
+    <p>{{ review[3] }}</p>
+
+</div>
+
+{% endfor %}
+</section>
+<section class="reviews-container">
+
+  {% for item in reviews %}
+
+  <div class="review-card">
+
+    <h2>{{ item.movie }}</h2>
+
+    <h3>By {{ item.username }}</h3>
+
+    <p>
+      {{ item.review }}
+    </p>
+
+    <a href="/delete_review/{{ loop.index0 }}">
+
+      <button class="delete-btn">
+        Delete Review ❌
+      </button>
+
+    </a>
+
+  </div>
+
+  {% endfor %}
+
+</section>
+
+    <div class="review-card">
+
+      <div class="top">
+
+        <img src="">
+
+        <div>
+
+          <h3>Rahul</h3>
+
+          <span>⭐⭐⭐⭐⭐</span>
+
+        </div>
+
+      </div>
+
+      <h2>hunuman</h2>
+
+      <p>
+        Amazing visuals and emotional storytelling.
+        One of the best sci-fi movies I’ve watched recently.
+      </p>
+
+    </div>
+
+    <div class="review-card">
+
+      <div class="top">
+
+        <img src="">
+
+        <div>
+
+          <h3>RAFI</h3>
+
+          <span>⭐⭐⭐⭐☆</span>
+
+        </div>
+
+      </div>
+
+      <h2>RRR</h2>
+
+      <p>
+        Thriller scenes were intense and suspenseful.
+        Background music was absolutely fantastic.
+      </p>
+
+    </div>
+
+    <div class="review-card">
+
+      <div class="top">
+
+        <img src="">
+
+        <div>
+
+          <h3>venkatesh</h3>
+
+          <span>⭐⭐⭐⭐⭐</span>
+
+        </div>
+
+      </div>
+
+      <h2>POKIRI</h2>
+
+      <p>
+      
+        The climax twist shocked me completely.
+      </p>
+
+    </div>
+
+    <div class="review-card">
+
+      <div class="top">
+
+        <img src="">
+
+        <div>
+
+          <h3>sai kumar</h3>
+
+          <span>⭐⭐⭐☆☆</span>
+
+        </div>
+
+      </div>
+
+      <h2>HI NANNA</h2>
+
+      <p>
+        Emotional movie with beautiful cinematography,
+        but pacing felt slightly slow in the second half.
+      </p>
+
+    </div>
+
+  </section>
+
+</body>
+</html>

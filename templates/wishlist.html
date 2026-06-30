@@ -1,0 +1,129 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Wishlist</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='wishlist.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            CineVerse
+        </div>
+
+        <ul>
+
+            <li><a href="/home">Home</a></li>
+
+            <li><a href="/movies">Movies</a></li>
+
+            <li><a href="/trending">Trending</a></li>
+
+            <li><a href="/reviews">Reviews</a></li>
+
+            <li>
+                <a href="/wishlist" class="active">
+                    Wishlist ❤️
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HEADING -->
+
+    <section class="wishlist-heading">
+
+        <h1>
+            My Wishlist ❤️
+        </h1>
+
+        <p>
+            Your favorite movies saved for later.
+        </p>
+
+    </section>
+
+    <!-- WISHLIST -->
+
+    <section class="wishlist-container">
+
+        {% if wishlist %}
+
+        {% for movie in wishlist %}
+
+        <div class="wishlist-card">
+
+            <img src="https://image.tmdb.org/t/p/w500/{{ movie[2] }}"
+            alt="{{ movie[1] }}">
+
+            <div class="wishlist-info">
+
+                <h2>{{ movie[1] }}</h2>
+
+                <span>
+                    ⭐ {{ movie[3] }}/10
+                </span>
+
+                <p>
+                    Added to your personal CineVerse wishlist.
+                </p>
+
+                <div class="buttons">
+
+                    <button>
+                        Watch Later 🎬
+                    </button>
+
+                    <a href="/remove_wishlist/{{ movie[0] }}">
+
+                        <button class="remove-btn">
+
+                            Remove ❌
+
+                        </button>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <div style="text-align:center; margin-top:60px;">
+
+            <h2>No Movies in Wishlist ❤️</h2>
+
+            <p style="margin-top:15px;color:#bbb;">
+                Go to Movies page and add your favorite movies.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</body>
+
+</html>

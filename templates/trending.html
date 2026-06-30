@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='trending.css') }}">
+</head>
+<body>
+  
+<section class="trending-container">
+
+{% for movie in movies %}
+
+<div class="trend-card">
+
+    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+         alt="{{ movie.title }}">
+
+    <div class="trend-info">
+
+        <h2>{{ movie.title }}</h2>
+
+        <p>{{ movie.release_date }}</p>
+
+        <span>⭐ {{ movie.vote_average }}/10</span>
+
+        <button>
+            Watch Now ▶
+        </button>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</section>
+</body>
+</html>
+
+

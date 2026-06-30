@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineVerse Movies</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='movies.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            CineVerse
+        </div>
+
+        <ul>
+
+            <li><a href="/home">Home</a></li>
+
+            <li><a href="/movies" class="active">Movies</a></li>
+
+            <li><a href="/trending">Trending</a></li>
+
+            <li><a href="/reviews">Reviews</a></li>
+
+            <li><a href="/wishlist">Wishlist</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- SEARCH -->
+
+    <section class="search-section">
+
+        <form action="/movies" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search Movies..."
+                value="{{ request.args.get('search','') }}">
+
+            <button type="submit">
+                Search 🔍
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- MOVIES -->
+
+    <section class="movies-section">
+
+        {% if movies %}
+
+        {% for movie in movies %}
+
+        {% if movie.poster_path %}
+
+        <div class="movie-card">
+
+            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+                 alt="{{ movie.title }}">
+
+            <div class="movie-content">
+
+                <h2>{{ movie.title }}</h2>
+
+                <span>⭐ {{ movie.vote_average }}/10</span>
+
+                <a href="/add_wishlist/{{ movie.title }}/{{ movie.poster_path }}/{{ movie.vote_average }}">
+
+                    <button>
+                        Add to Wishlist ❤️
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+        {% else %}
+
+        <h2 style="color:white;text-align:center;width:100%;">
+            No movies found 😔
+        </h2>
+
+        {% endif %}
+
+    </section>
+
+</body>
+
+</html>
+  
+  
+      

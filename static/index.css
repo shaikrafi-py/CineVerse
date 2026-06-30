@@ -1,0 +1,279 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+    color:#ff3c78;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover,
+.active{
+    color:#ff3c78;
+}
+
+.login-btn{
+    padding:10px 20px;
+    background:#ff3c78;
+    border-radius:30px;
+    color:white !important;
+}
+
+.login-btn:hover{
+    background:#ff1f65;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 8%;
+}
+
+.hero-text{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero h1 span{
+    color:#ff3c78;
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:#ddd;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ff3c78;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#ff1f65;
+    transform:scale(1.05);
+}
+
+.secondary-btn{
+    background:transparent;
+    border:2px solid #ff3c78;
+}
+
+.secondary-btn:hover{
+    background:#ff3c78;
+}
+
+/* SECTION */
+
+.section{
+    width:90%;
+    margin:70px auto;
+}
+
+.section-title{
+    font-size:2.3rem;
+    margin-bottom:30px;
+    color:#ff3c78;
+}
+
+/* MOVIES */
+
+.movies{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.movie-card{
+    background:#181818;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 10px 20px rgba(0,0,0,.4);
+}
+
+.movie-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(255,60,120,.4);
+}
+
+.movie-card img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+}
+
+.movie-content{
+    padding:20px;
+}
+
+.movie-content h3{
+    color:#ff3c78;
+    margin-bottom:10px;
+    font-size:1.4rem;
+}
+
+.rating{
+    color:gold;
+    margin-bottom:12px;
+    font-size:1.1rem;
+}
+
+.movie-content p{
+    color:#bbb;
+    line-height:1.6;
+}
+
+/* REVIEW */
+
+.review-box{
+    background:#181818;
+    padding:40px;
+    border-radius:20px;
+}
+
+.review-box h2{
+    color:#ff3c78;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.review-form{
+    width:100%;
+}
+
+.review-form h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.review-form form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.review-form input,
+.review-form textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#0f0f0f;
+    color:white;
+    outline:none;
+}
+
+.review-form textarea{
+    height:150px;
+    resize:none;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#111;
+    color:#bbb;
+    margin-top:50px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:2.7rem;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .movies{
+        grid-template-columns:1fr;
+    }
+
+    .movie-card img{
+        height:420px;
+    }
+
+}

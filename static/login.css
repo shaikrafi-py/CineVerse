@@ -1,0 +1,148 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+  url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+  overflow:hidden;
+}
+
+.login-container{
+  width:380px;
+
+  background:rgba(20,20,20,0.85);
+
+  backdrop-filter:blur(15px);
+
+  padding:40px;
+
+  border-radius:25px;
+
+  box-shadow:0 0 30px rgba(255,60,120,0.3);
+
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+.logo{
+  text-align:center;
+  color:#ff3c78;
+  font-size:2.2rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#bbb;
+  margin-bottom:35px;
+  font-size:0.95rem;
+}
+
+.input-box{
+  margin-bottom:20px;
+}
+
+.input-box label{
+  color:#ddd;
+  font-size:0.9rem;
+  display:block;
+  margin-bottom:8px;
+}
+
+.input-box input{
+  width:100%;
+  padding:14px;
+  border:none;
+  outline:none;
+  border-radius:12px;
+  background:#262626;
+  color:white;
+  font-size:1rem;
+  transition:0.3s;
+}
+
+.input-box input:focus{
+  border:1px solid #ff3c78;
+
+  box-shadow:0 0 10px rgba(255,60,120,0.4);
+}
+
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  font-size:0.9rem;
+}
+
+.options a{
+  text-decoration:none;
+  color:#ff3c78;
+}
+
+.remember{
+  color:#ccc;
+}
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+
+  background:#ff3c78;
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  transform:scale(1.03);
+
+  box-shadow:0 0 20px rgba(255,60,120,0.5);
+}
+
+.register{
+  text-align:center;
+  margin-top:25px;
+  color:#bbb;
+  font-size:0.95rem;
+}
+
+.register a{
+  color:#ff3c78;
+  text-decoration:none;
+  font-weight:600;
+}

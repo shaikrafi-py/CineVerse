@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">CineVerse</div>
+
+        <ul>
+
+            <li><a href="/home" class="active">Home</a></li>
+
+            <li><a href="/movies">Movies</a></li>
+
+            <li><a href="/trending">Trending</a></li>
+
+            <li><a href="/reviews">Reviews</a></li>
+
+            <li><a href="/wishlist">Wishlist</a></li>
+
+            <li><a href="/ai">AI Assistant</a></li>
+
+            {% if "user" in session %}
+
+            <li>
+                <a href="/logout" class="login-btn">
+                    Logout
+                </a>
+            </li>
+
+            {% else %}
+
+            <li>
+                <a href="/" class="login-btn">
+                    Login
+                </a>
+            </li>
+
+            {% endif %}
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Review Your
+                <span>Favorite Movies</span>
+            </h1>
+
+            <p>
+                Discover trending movies, explore the latest Telugu films,
+                write reviews, and build your personal wishlist.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/movies">
+                    <button class="btn">Explore Movies</button>
+                </a>
+
+                <a href="/reviews">
+                    <button class="btn secondary-btn">
+                        Write Review
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TRENDING -->
+<!-- TRENDING MOVIES -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        🔥 Trending Movies
+    </h2>
+
+    <div class="movies">
+
+        {% for movie in movies %}
+
+        <div class="movie-card">
+
+            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+                 alt="{{ movie.title }}">
+
+            <div class="movie-content">
+
+                <h3>{{ movie.title }}</h3>
+
+                <div class="rating">
+                    ⭐ {{ movie.vote_average }}/10
+                </div>
+
+                <p>
+                    📅 {{ movie.release_date }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+    
+                        
+                       
+      
+
+    <!-- REVIEW -->
+
+    <section class="section">
+
+        <div class="review-box">
+
+            <h2>🎬 Write Your Review</h2>
+
+            <section class="review-form">
+
+                <h1>Write a Review ⭐</h1>
+
+                <form action="/add_review" method="POST">
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Your Name"
+                        required>
+
+                    <input
+                        type="text"
+                        name="movie"
+                        placeholder="Movie Name"
+                        required>
+
+                    <textarea
+                        name="review"
+                        placeholder="Write your review..."
+                        required></textarea>
+
+                    <button class="btn">
+                        Submit Review
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 CineVerse | Movie Review Website
+    </footer>
+
+</body>
+</html>
