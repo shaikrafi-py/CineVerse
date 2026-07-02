@@ -5,7 +5,7 @@ from groq import Groq
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv("/home/shaikrafi04/CineVerse/.env")
 app = Flask(__name__)
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 conn = sqlite3.connect("movie.db", check_same_thread=False)
